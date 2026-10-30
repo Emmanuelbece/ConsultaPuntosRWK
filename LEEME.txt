@@ -1,0 +1,47 @@
+CONSULTA DE RETRABAJO DE SOLDADURA - REAR CRADLE
+==================================================
+
+QUE CONTIENE ESTA CARPETA
+  index.html  Pagina de consulta (4 lineas, pieza con circulos rojos, tabla de puntos abiertos).
+  datos.js    Los datos actuales. Es el UNICO archivo que se reemplaza para actualizar.
+  LEEME.txt   Este instructivo.
+
+COMO FUNCIONA
+  1. Esta carpeta se aloja una vez en un servidor o hosting. Queda una direccion web fija.
+  2. El codigo QR se genera con esa direccion y se imprime una sola vez.
+  3. Para actualizar la informacion se reemplaza solo datos.js; el QR no cambia.
+  4. Quien escanea no necesita cuenta de ninguna aplicacion. La pagina se recarga sola cada 5 minutos.
+
+DONDE ALOJARLA (elige UNA opcion)
+
+  OPCION A - Servidor interno de la planta (recomendada si la informacion es confidencial)
+    - Pide a TI que copie la carpeta completa a un servidor web interno (IIS, Apache, Nginx).
+    - TI te entrega la direccion, por ejemplo http://servidor-interno/consulta/
+    - Funciona solo dentro de la red/Wi-Fi de la planta; no depende de internet.
+
+  OPCION B - Hosting gratuito (acceso desde cualquier red)
+    Solo quien publica necesita una cuenta gratuita; quien escanea no necesita ninguna.
+    Cualquier persona que tenga el enlace podra ver los datos de retrabajo (sin fotos).
+    - GitHub Pages: crea un repositorio publico, sube los 3 archivos, entra a Settings > Pages
+      y publica la rama principal. La direccion queda como https://USUARIO.github.io/REPOSITORIO/
+    - Netlify: crea una cuenta gratuita, entra a Sites y arrastra la carpeta completa.
+    - Cloudflare Pages: Workers y Pages > Crear > Pages > Subir activos, y subes la carpeta.
+    (Los nombres de los menus pueden cambiar con el tiempo.)
+
+  OPCION C - Una computadora de la planta como servidor (sin TI ni internet)
+    - Requiere Python instalado. Abre una terminal dentro de esta carpeta y ejecuta:
+          python -m http.server 8080
+    - La direccion es http://IP-DE-LA-PC:8080/ (la IP se ve con el comando ipconfig).
+    - La PC debe permanecer encendida y el firewall debe permitir el puerto 8080.
+    - Funciona solo dentro de la red de la planta.
+
+COMO ACTUALIZAR LOS DATOS
+  1. En la aplicacion principal entra a la pestana "Consulta QR".
+  2. Pulsa "Descargar datos.js".
+  3. Reemplaza el datos.js que esta en tu servidor u hosting por el nuevo (mismo nombre y misma carpeta).
+  4. Abre la direccion y confirma que dice "Datos al ..." con la fecha nueva
+     (si ves la anterior, recarga la pagina o espera unos minutos).
+
+COMO HACER EL QR
+  En la aplicacion principal, pestana "Consulta QR", opcion 2: pega la direccion y descarga el QR.
+  Para abrir directo una linea agrega #l1, #l2, #l3 o #l4 al final de la direccion.
